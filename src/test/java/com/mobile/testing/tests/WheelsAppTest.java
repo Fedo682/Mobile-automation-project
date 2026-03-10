@@ -137,16 +137,14 @@ public class WheelsAppTest extends BaseTest {
 			 addtocartbtn.click();
 			 Assert.assertTrue(true, "clicked add to cart button successfully");
 			 System.out.println("Added meal to cart successfully!");
-			 
-			 
-			 
+		
 			 WebElement cartbutton = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.className("android.widget.Button")
 						)
 					);
 			 cartbutton.click();
-			 
+			
 			 WebElement amountlbl = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.xpath("//android.view.View[@content-desc=\"Sub Total\n"
