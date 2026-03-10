@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ApiDemos Alert Dialog Test Suite" verbose="1">
+<suite name="Wheels Delivery Order App Test Suite" verbose="1">
     
     <listeners>
         <listener class-name="com.mobile.testing.utils.TestListener"/>
     </listeners>
     
-    <test name="ApiDemos Alert Dialog Tests - Android">
+    <test name="Wheels Delivery Order">
         <parameter name="platformName" value="Android"/>
         <parameter name="deviceName" value="emulator-5554"/>
-        <parameter name="appPath" value="C:/Users/Extreme/Desktop/android Apks/ApiDemos-debug.apk"/>
+        <parameter name="appPath" value="C:/Users/Extreme/Desktop/android Apks/wheels-app.apk"/>
         
         <classes>
-            <class name="com.mobile.testing.tests.ApiDemosAlertTest"/>
+            <class name="com.mobile.testing.tests.WheelsAppTest"/>
         </classes>
     </test>
     

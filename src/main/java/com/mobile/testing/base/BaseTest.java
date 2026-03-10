@@ -1,4 +1,5 @@
 package com.mobile.testing.base;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.appium.java_client.AppiumDriver;
@@ -187,16 +188,16 @@ public class BaseTest {
      * Quit the driver after each test method
      */
  
-	@AfterMethod
+	@AfterClass
     public void tearDown() {
         if (driver != null) {
             System.out.println("\n========================================");
             System.out.println("Cleaning up test environment...");
             System.out.println("========================================");
             
-            // Don't quit immediately - give some time for observation
+            
             try {
-                Thread.sleep(2000);
+                Thread.sleep(10000);// 10 seconds to allow any pending operations to complete before quitting the driver
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
