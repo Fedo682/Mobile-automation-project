@@ -44,7 +44,7 @@ public class WheelsAppTest extends BaseTest {
             e.printStackTrace();
             Assert.fail("Test interrupted: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("❌ Error during app launch: " + e.getMessage());
+            System.err.println(" Error during app launch: " + e.getMessage());
             e.printStackTrace();
             Assert.fail("App launch failed: " + e.getMessage());
         }
@@ -196,7 +196,7 @@ public class WheelsAppTest extends BaseTest {
 			e.printStackTrace();
 			Assert.fail("Test interrupted: " + e.getMessage());
 		} catch (Exception e) {
-			System.err.println("❌ Error during account creation: " + e.getMessage());
+			System.err.println("Error during account creation: " + e.getMessage());
 			e.printStackTrace();
 			Assert.fail("Account creation failed: " + e.getMessage());
 		}
