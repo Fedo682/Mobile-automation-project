@@ -84,8 +84,7 @@ public class WheelsAppTest extends BaseTest {
 				);
 			locationbutton.click();
 			Thread.sleep(7000);
-			
-			
+		
 			WebElement skipphonenumberbtn = wait.until(
 					ExpectedConditions.presenceOfElementLocated(
 						AppiumBy.accessibilityId("Skip")
@@ -201,10 +200,6 @@ public class WheelsAppTest extends BaseTest {
 			Assert.fail("Account creation failed: " + e.getMessage());
 		}
 	}
-   
-   
-   
-   
    
    
    
