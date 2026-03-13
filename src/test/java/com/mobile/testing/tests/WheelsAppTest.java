@@ -45,7 +45,7 @@ public class WheelsAppTest extends BaseTest {
             e.printStackTrace();
             Assert.fail("Test interrupted: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("❌ Error during app launch: " + e.getMessage());
+            System.err.println(" Error during app launch: " + e.getMessage());
             e.printStackTrace();
             Assert.fail("App launch failed: " + e.getMessage());
         }
@@ -85,8 +85,7 @@ public class WheelsAppTest extends BaseTest {
 				);
 			locationbutton.click();
 			Thread.sleep(7000);
-			
-			
+		
 			WebElement skipphonenumberbtn = wait.until(
 					ExpectedConditions.presenceOfElementLocated(
 						AppiumBy.accessibilityId("Skip")
@@ -139,16 +138,14 @@ public class WheelsAppTest extends BaseTest {
 			 addtocartbtn.click();
 			 Assert.assertTrue(true, "clicked add to cart button successfully");
 			 System.out.println("Added meal to cart successfully!");
-			 
-			 
-			 
+		
 			 WebElement cartbutton = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.className("android.widget.Button")
 						)
 					);
 			 cartbutton.click();
-			 
+			
 			 WebElement amountlbl = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.xpath("//android.view.View[@content-desc=\"Sub Total\n"
@@ -213,15 +210,11 @@ public class WheelsAppTest extends BaseTest {
 			e.printStackTrace();
 			Assert.fail("Test interrupted: " + e.getMessage());
 		} catch (Exception e) {
-			System.err.println("❌ Error during account creation: " + e.getMessage());
+			System.err.println("Error during account creation: " + e.getMessage());
 			e.printStackTrace();
 			Assert.fail("Account creation failed: " + e.getMessage());
 		}
 	}
-   
-   
-   
-   
    
    
    
