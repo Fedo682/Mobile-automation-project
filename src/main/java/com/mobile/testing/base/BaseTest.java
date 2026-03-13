@@ -21,7 +21,7 @@ import java.util.Properties;
 
 /**
  * Base Test class that handles Appium driver initialization and teardown
- * Supports both Android and iOS platforms
+ * Supports both Android 
  */
 public class BaseTest {
     
@@ -41,7 +41,7 @@ public class BaseTest {
                       @Optional("emulator") String deviceName,
                       @Optional String appPath) throws MalformedURLException {
         
-        System.out.println("\n========================================");
+       
         System.out.println("Setting up test environment...");
         System.out.println("========================================");
         
@@ -52,9 +52,8 @@ public class BaseTest {
         try {
             if (platformName.equalsIgnoreCase("Android")) {
                 driver = initializeAndroidDriver(appiumServerUrl, deviceName, appPath);
-            } else if (platformName.equalsIgnoreCase("iOS")) {
-                driver = initializeIOSDriver(appiumServerUrl, deviceName, appPath);
-            } else {
+            } 
+            else {
                 throw new IllegalArgumentException("Unsupported platform: " + platformName);
             }
             
@@ -121,7 +120,7 @@ public class BaseTest {
             }
         }
         
-        // SIMPLE CONFIGURATION - Just the basics
+        // additional capabilities
         options.setAutomationName("UiAutomator2");
         options.setAutoGrantPermissions(true);
         
@@ -132,33 +131,7 @@ public class BaseTest {
         return androidDriver;
     }
     
-    /**
-     * Initialize iOS driver with capabilities
-     */
-    private IOSDriver initializeIOSDriver(String serverUrl, String deviceName, String appPath) 
-            throws MalformedURLException {
-        
-        XCUITestOptions options = new XCUITestOptions();
-        options.setDeviceName(deviceName);
-        options.setPlatformName("iOS");
-        
-        if (appPath != null && !appPath.isEmpty()) {
-            options.setApp(appPath);
-        } else if (properties.getProperty("ios.app.path") != null) {
-            options.setApp(properties.getProperty("ios.app.path"));
-        }
-        
-        // Optional capabilities
-        if (properties.getProperty("ios.bundle.id") != null) {
-            options.setBundleId(properties.getProperty("ios.bundle.id"));
-        }
-        
-        options.setAutomationName("XCUITest");
-        options.setNoReset(false);
-        
-        return new IOSDriver(new URL(serverUrl), options);
-    }
-    
+  
     /**
      * Load properties from config file
      */
@@ -185,7 +158,7 @@ public class BaseTest {
     }
     
     /**
-     * Quit the driver after each test method
+     * Quit the driver after each test Class
      */
  
 	@AfterClass

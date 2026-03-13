@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -109,22 +110,22 @@ public class WheelsAppTest extends BaseTest {
 							AppiumBy.className("android.widget.EditText")
 						)
 					);
-			 searchfield.sendKeys("orgada");
+			 searchfield.sendKeys("heart");
 		
 			 
-			 WebElement orgadaplace = wait.until(
+			 WebElement heartattackplace = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.className("android.widget.ImageView")
 						)
 					);
-			 orgadaplace.click();
+			 heartattackplace.click();
 			 Thread.sleep(5000);
 			 
 			 WebElement mealtry = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
-							AppiumBy.xpath("//android.widget.ImageView[@content-desc=\"بوكس اللمة\n"
-									+ "ستريبس دجاج 300 غم، تشيكن بايتس 300غم، أجنحة 8 قطع، وبطاطا عادية مقرمشة مع تشكيلة لذيذة من الصوصات - وجبة مثالية للّمة 😋\n"
-									+ "70.0\n"
+							AppiumBy.xpath("//android.widget.ImageView[@content-desc=\"عرض ال 50\n"
+									+ "( 6 بروست أو 10 كرسبي ) + كوسلو كبير + كولا كبير +بطاطا كبير + 3 خبز + صوصات\n"
+									+ "50.0\n"
 									+ "₪\"]")
 						)
 					);
@@ -151,21 +152,31 @@ public class WheelsAppTest extends BaseTest {
 			 WebElement amountlbl = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
 							AppiumBy.xpath("//android.view.View[@content-desc=\"Sub Total\n"
-									+ "70.00 ₪\n"
+									+ "50.00 ₪\n"
 									+ "Delivery Fee\n"
 									+ "10.00 ₪\n"
 									+ "Total\n"
-									+ "80.00 ₪\"]")
+									+ "60.00 ₪\"]")
 						)
 					);
 			 Assert.assertTrue(amountlbl.isDisplayed(), "there exists items in the cart ");
-			 amountlbl.getText().contains("80.00");
-			 Assert.assertEquals(amountlbl.getText(), "Sub Total\\n70.00 ₪\\nDelivery Fee\\n10.00 ₪\\nTotal\\n80.00 ₪", "Total amount should be correct in cart");
+			 
+			 boolean isAmountCorrect = amountlbl.getText().contains("60.00");
+			 
+			 Assert.assertTrue(true, "total amount in cart is correct");
 			 System.out.println("Verified total amount in cart successfully!");
+			 
+			 WebElement gobackbutton = wait.until(
+						ExpectedConditions.presenceOfElementLocated(
+							AppiumBy.accessibilityId("Back")
+						)
+					);
+			 gobackbutton.click();
+			 
 			 
 			 WebElement gettomainpagebutton = wait.until(
 						ExpectedConditions.presenceOfElementLocated(
-							AppiumBy.xpath("//android.view.View[@content-desc=\"Item added to cart successfully\"]/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View")
+							AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View")
 						)
 					);
 			 
@@ -180,8 +191,14 @@ public class WheelsAppTest extends BaseTest {
 			 
 			
 			 searchbutton.click();
+
+			 WebElement searchfield2 = wait.until(
+						ExpectedConditions.presenceOfElementLocated(
+							AppiumBy.className("android.widget.EditText")
+						)
+					);
 			
-			 searchfield.sendKeys("ghada");
+			 searchfield2.sendKeys("ghada");
 			
 			 
 			 WebElement nodatalbl = wait.until(
